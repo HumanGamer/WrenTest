@@ -3,4 +3,13 @@ project(WrenTest)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(WrenTest main.cpp)
+include(cmake/lib/wren.cmake)
+
+include_directories(lib/wren/src/include)
+
+set(MAIN_SRC
+    main.cpp
+)
+
+add_executable(WrenTest ${MAIN_SRC})
+target_link_libraries(WrenTest WrenLib)
